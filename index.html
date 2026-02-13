@@ -27,6 +27,7 @@ body {
     position: relative;
 }
 
+/* main image */
 .slide-img {
     width: 100%;
     max-width: 380px;
@@ -40,6 +41,7 @@ h1 {
     line-height: 1.3;
 }
 
+/* envelope */
 .envelope {
     font-size: 80px;
     cursor: pointer;
@@ -51,6 +53,7 @@ h1 {
     transform: scale(1.2);
 }
 
+/* slide 2 */
 #slide2 {
     display: none;
     font-size: 20px;
@@ -60,6 +63,7 @@ h1 {
     position: relative;
 }
 
+/* POLAROID STYLE */
 .polaroid {
     position: absolute;
     background: white;
@@ -76,16 +80,19 @@ h1 {
     border-radius: 4px;
 }
 
+/* positions */
 .mem1 { top: 80px; left: -160px; transform: rotate(-12deg); }
 .mem2 { top: 80px; right: -160px; transform: rotate(12deg); }
 .mem3 { top: 350px; left: -160px; transform: rotate(8deg); }
 .mem4 { top: 350px; right: -160px; transform: rotate(-8deg); }
 
+/* floating animation */
 @keyframes floatAnim {
-    0%,100% { transform: translateY(0px); }
-    50% { transform: translateY(-12px); }
+    0%,100% { transform: translateY(0px) rotate(var(--rot)); }
+    50% { transform: translateY(-12px) rotate(var(--rot)); }
 }
 
+/* zoom overlay */
 #zoomOverlay {
     position: fixed;
     top: 0;
@@ -106,6 +113,7 @@ h1 {
     max-width: 90%;
     max-height: 90%;
     border-radius: 10px;
+    box-shadow: 0 0 40px rgba(255,255,255,0.3);
 }
 
 #zoomOverlay.show {
@@ -113,6 +121,7 @@ h1 {
     opacity: 1;
 }
 
+/* final line */
 .final-line {
     font-size: 26px;
     text-align: center;
@@ -121,6 +130,7 @@ h1 {
     transition: 3s;
 }
 
+/* hearts */
 .heart {
     position: fixed;
     bottom: -10px;
@@ -138,41 +148,42 @@ h1 {
 
 <div class="container">
 
+<!-- slide 1 -->
 <div id="slide1">
 
-<img class="slide-img"
-src="https://raw.githubusercontent.com/vidhansharmaofficial-debug/forsehajdidi/main/7efe876396837dbd57560677934d9f1e.jpg">
+<img class="slide-img" src="https://github.com/vidhansharmaofficial-debug/forsehajdidi/blob/83a44c07f7220e16063c692e1400a0aebbc6d09a/7efe876396837dbd57560677934d9f1e.jpg">
 
 <h1>
 To the one person I never want to lose ❤️<br>
 Meri pyaari behan ❤️
 </h1>
 
-<div class="envelope" onclick="openLetter()">💌</div>
+<div class="envelope" onclick="openLetter()">💌 </div>
+<div></div>
+
 
 </div>
 
-
+<!-- slide 2 -->
 <div id="slide2">
 
-<img class="slide-img"
-src="https://raw.githubusercontent.com/vidhansharmaofficial-debug/forsehajdidi/main/didi1.png">
+<img class="slide-img" src="https://github.com/vidhansharmaofficial-debug/forsehajdidi/blob/dcda886e17550b6f8aca939ea8027f2fe10d9bbb/didi1.png">
 
-
+<!-- polaroid memories -->
 <div class="polaroid mem1" onclick="zoom(this)">
-<img src="https://raw.githubusercontent.com/vidhansharmaofficial-debug/forsehajdidi/main/didi4.png">
+<img src="https://github.com/vidhansharmaofficial-debug/forsehajdidi/blob/dcda886e17550b6f8aca939ea8027f2fe10d9bbb/didi%204.png">
 </div>
 
 <div class="polaroid mem2" onclick="zoom(this)">
-<img src="https://raw.githubusercontent.com/vidhansharmaofficial-debug/forsehajdidi/main/didi2.png">
+<img src="https://github.com/vidhansharmaofficial-debug/forsehajdidi/blob/dcda886e17550b6f8aca939ea8027f2fe10d9bbb/didi2.png">
 </div>
 
 <div class="polaroid mem3" onclick="zoom(this)">
-<img src="https://raw.githubusercontent.com/vidhansharmaofficial-debug/forsehajdidi/main/didi3.png">
+<img src="https://github.com/vidhansharmaofficial-debug/forsehajdidi/blob/dcda886e17550b6f8aca939ea8027f2fe10d9bbb/didi3.png">
 </div>
 
 <div class="polaroid mem4" onclick="zoom(this)">
-<img src="https://raw.githubusercontent.com/vidhansharmaofficial-debug/forsehajdidi/main/didi4.png">
+<img src="https://github.com/vidhansharmaofficial-debug/forsehajdidi/blob/dcda886e17550b6f8aca939ea8027f2fe10d9bbb/didi%204.png">
 </div>
 
 <p id="letter"></p>
@@ -185,16 +196,15 @@ Happy Valentine's Day ❤️
 
 </div>
 
-
+<!-- zoom overlay -->
 <div id="zoomOverlay" onclick="closeZoom()">
 <img id="zoomImg">
 </div>
 
-
+<!-- music -->
 <audio id="music" loop>
-<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8e55c4c4e.mp3">
+<source src="https://www2.cs.uic.edu/~i101/SoundFiles/CanoninD.mp3">
 </audio>
-
 
 <script>
 
@@ -228,6 +238,7 @@ And I promise, I will do better.
 
 that was it and also`;
 
+
 let i=0;
 
 function typeWriter(){
@@ -255,9 +266,13 @@ function openLetter(){
     },300);
 }
 
+/* zoom */
 function zoom(el){
+
     const img=el.querySelector("img").src;
+
     document.getElementById("zoomImg").src=img;
+
     document.getElementById("zoomOverlay").classList.add("show");
 }
 
@@ -265,6 +280,7 @@ function closeZoom(){
     document.getElementById("zoomOverlay").classList.remove("show");
 }
 
+/* hearts */
 function createHeart(){
 
     const heart=document.createElement("div");
