@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Sister ❤️</title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 700px;
+    padding: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+/* main image */
+.slide-img {
+    width: 100%;
+    max-width: 380px;
+    border-radius: 18px;
+    margin-bottom: 25px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+h1 {
+    font-size: 40px;
+    line-height: 1.3;
+}
+
+/* envelope */
+.envelope {
+    font-size: 80px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.envelope:hover {
+    transform: scale(1.2);
+}
+
+/* slide 2 */
+#slide2 {
+    display: none;
+    font-size: 20px;
+    text-align: justify;
+    line-height: 1.8;
+    opacity: 0;
+    position: relative;
+}
+
+/* POLAROID STYLE */
+.polaroid {
+    position: absolute;
+    background: white;
+    padding: 10px 10px 25px 10px;
+    border-radius: 6px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    cursor: pointer;
+    transition: 0.4s;
+    animation: floatAnim 4s ease-in-out infinite;
+}
+
+.polaroid img {
+    width: 130px;
+    border-radius: 4px;
+}
+
+/* positions */
+.mem1 { top: 80px; left: -160px; transform: rotate(-12deg); }
+.mem2 { top: 80px; right: -160px; transform: rotate(12deg); }
+.mem3 { top: 350px; left: -160px; transform: rotate(8deg); }
+.mem4 { top: 350px; right: -160px; transform: rotate(-8deg); }
+
+/* floating animation */
+@keyframes floatAnim {
+    0%,100% { transform: translateY(0px) rotate(var(--rot)); }
+    50% { transform: translateY(-12px) rotate(var(--rot)); }
+}
+
+/* zoom overlay */
+#zoomOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+    z-index: 999;
+}
+
+#zoomOverlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 40px rgba(255,255,255,0.3);
+}
+
+#zoomOverlay.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* final line */
+.final-line {
+    font-size: 26px;
+    text-align: center;
+    margin-top: 30px;
+    opacity: 0;
+    transition: 3s;
+}
+
+/* hearts */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity:1; }
+    100% { transform: translateY(-100vh); opacity:0; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- slide 1 -->
+<div id="slide1">
+
+<img class="slide-img" src="c:\Users\vidha\Downloads\7efe876396837dbd57560677934d9f1e.jpg">
+
+<h1>
+To the one person I never want to lose ❤️<br>
+Meri pyaari behan ❤️
+</h1>
+
+<div class="envelope" onclick="openLetter()">💌 </div>
+<div></div>
+
+
+</div>
+
+<!-- slide 2 -->
+<div id="slide2">
+
+<img class="slide-img" src="c:\Users\vidha\Pictures\Screenshots\didi1.png">
+
+<!-- polaroid memories -->
+<div class="polaroid mem1" onclick="zoom(this)">
+<img src="c:\Users\vidha\Pictures\Screenshots\Screenshot 2026-02-14 004500.png">
+</div>
+
+<div class="polaroid mem2" onclick="zoom(this)">
+<img src="c:\Users\vidha\Pictures\Screenshots\didi2.png">
+</div>
+
+<div class="polaroid mem3" onclick="zoom(this)">
+<img src="c:\Users\vidha\Pictures\Screenshots\didi3.png">
+</div>
+
+<div class="polaroid mem4" onclick="zoom(this)">
+<img src="c:\Users\vidha\Pictures\Screenshots\didi 4.png">
+</div>
+
+<p id="letter"></p>
+
+<div class="final-line" id="finalLine">
+Happy Valentine's Day ❤️
+</div>
+
+</div>
+
+</div>
+
+<!-- zoom overlay -->
+<div id="zoomOverlay" onclick="closeZoom()">
+<img id="zoomImg">
+</div>
+
+<!-- music -->
+<audio id="music" loop>
+<source src="https://www2.cs.uic.edu/~i101/SoundFiles/CanoninD.mp3">
+</audio>
+
+<script>
+
+const text = `From the deepest point of my heart to meri pyaari didi❤️❤️
+
+I know I haven't always been perfect, i just always wonder ki how you didnt left me after i made so many mistakes. But I guess it is what it is, close relations like ours are never broken through small fights.
+
+But one thing is true I wanna apologize for whatever i did that hurt you.
+
+Meri pyaaari behen
+
+You are not just my sister.
+You are my safe place, my support, and my constant.
+You are something i would never want to lose, you are something that makes my day better than infinite many times.❤️❤️
+
+For me you are the single thing that is more expensive for me than anything else. You know i feel ki the word sister is not that grat that it can define you.
+
+YOU WILL ALWAYS BE MY GREATEST GIFT OF MY LIFE.❤️❤️
+
+I can afford anyting but to lose you.
+
+I'm sorry for everything that hurt you.
+
+Just wanna say that nthing is more important for me than you, we have one year left together but i wanna make this last year as memorable as possible.
+
+You are the most precious Gem of my life and honestly you cant be compared with anyone else.❤️
+
+please never ever overthink for 2 kodi ke log you are just too above for them.❤️❤️
+
+And I promise, I will do better.
+
+that was it and also`;
+
+
+let i=0;
+
+function typeWriter(){
+    if(i<text.length){
+        document.getElementById("letter").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter,25);
+    }
+    else{
+        document.getElementById("finalLine").style.opacity="1";
+    }
+}
+
+function openLetter(){
+
+    document.getElementById("music").play();
+
+    document.getElementById("slide1").style.display="none";
+
+    document.getElementById("slide2").style.display="block";
+
+    setTimeout(()=>{
+        document.getElementById("slide2").style.opacity="1";
+        typeWriter();
+    },300);
+}
+
+/* zoom */
+function zoom(el){
+
+    const img=el.querySelector("img").src;
+
+    document.getElementById("zoomImg").src=img;
+
+    document.getElementById("zoomOverlay").classList.add("show");
+}
+
+function closeZoom(){
+    document.getElementById("zoomOverlay").classList.remove("show");
+}
+
+/* hearts */
+function createHeart(){
+
+    const heart=document.createElement("div");
+
+    heart.className="heart";
+
+    heart.innerHTML="❤️";
+
+    heart.style.left=Math.random()*100+"vw";
+
+    heart.style.fontSize=(Math.random()*20+10)+"px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>heart.remove(),5000);
+}
+
+setInterval(createHeart,300);
+
+</script>
+
+</body>
+</html>
